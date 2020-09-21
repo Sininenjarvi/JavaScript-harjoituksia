@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ampumahiihto Östersund 14.12.2016</title>
+<!-- 
+
+ -->
+</head>
+<body> 
+	<h3>Ampumahiihto Östersund 14.12.2016</h3>
+
+	<form>
+
+		<label>Nimi:</label> 
+		<input type="text" id="nimi" size="25"> 
+		
+		<br> <br>
+		
+		<input type="button" value="Kerro sijoitus" onclick="kerro()">
+	</form>
+	<!-- Tänne kirjoitetaan vastaus JavaScriptillä -->
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	 
+	
+	
+	
+	
+	function kerro(){
+		var nimi = document.getElementById("nimi").value;
+	
+		
+		var teksti = "";
+				 var tulokset = [
+						{
+							"sija": 1,
+							"nimi": "KOUKALOVA Gabriela",
+							"kansallisuus": "CZE",
+							"ammunta": [0, 0, 1, 0],
+							"aika": "31:43.3"
+						},
+						{
+							"sija": 2,
+							"nimi": "DAHLMEIER Laura", 
+							"kansallisuus": "GER",  
+							"ammunta": [0, 1, 1, 0],
+							"aika": "+8.4", 
+						},
+						{
+							"sija": 3, 
+							"nimi": "WIERER Dorothea",  
+							"kansallisuus": "ITA",  
+							"ammunta": [0, 0, 0, 0],
+							"aika": "+21.4", 
+						},
+						{
+							"sija": 4, 
+							"nimi": "HAECKI Lena",  
+							"kansallisuus": "SUI", 
+							"ammunta": [0, 0, 0, 0], 
+							"aika": "+36.3", 
+						},
+						{
+							"sija": 5, 
+							"nimi": "MAKARAINEN Kaisa", 
+							"kansallisuus": "FIN", 
+							"ammunta": [1, 1, 0, 2],
+							"aika": "+52.7",
+						},
+						{
+							"sija":31,
+							"nimi": "LAUKKANEN Mari", 
+							"kansallisuus": "FIN", 
+							"ammunta": [0, 1, 3, 1], 
+							"aika": "+3:35.8",
+						}
+					]
+	
+	
+		for (var i = 0; i < tulokset.length; i++){
+			if (nimi = tulokset[i].nimi)
+			teksti = teksti + "Sijoitus oli " + tulokset[i].sija;
+		
+	}
+	document.getElementById("vastaus").innerHTML = "<p>" + teksti + "</p>";
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>1. Koearvosanat</title>
+<!-- 
+
+ -->
+</head>
+<body> 
+	<h3>1. Koearvosanat</h3>
+
+	<form>
+		<label>Pisteet (0-30):</label> 
+		<input type="text" id="pisteet" size="2"> 
+		<br> <br>
+		
+		
+		<input type="button" value="Kerro arvosana" onclick="kerro()">
+	</form>
+
+	<!-- Tänne kirjoitetaan vastaus JavaScriptillä -->
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	// Funktio
+	function kerro() {
+		// Lomakekentän arvo
+		var pisteet = document.getElementById("pisteet").value;
+		var teksti = "";
+		
+		
+		if (pisteet < 15) {
+			teksti = teksti + "Hylätty";
+		}
+		else if (pisteet == 15 && pisteet < 17){
+			teksti = teksti + " Arvosana on välttävä.";
+		}
+		else if (pisteet >= 17 && pisteet < 21){
+			teksti = teksti + "Arvosana on tyydyttävä.";
+		}
+		else if (pisteet >= 21 && pisteet < 24){
+			teksti = teksti + "Arvosana on hyvä.";
+		}
+		else if (pisteet >= 24 && pisteet < 27){
+			teksti = teksti + "Arvosana on erinomainen.";
+		}
+		else if (pisteet >=27){
+			teksti = teksti + "Arvosana on kiitettävä.";
+		}
+
+		// Vastauksen kirjoittaminen html-sivulle
+		document.getElementById("vastaus").innerHTML = "<p>" + teksti + "</p>";
+	}
+	</script>
+</body>
+</html>

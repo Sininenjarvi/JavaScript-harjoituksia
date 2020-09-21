@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2. Kotitalousvähennys</title>
+<!-- 
+
+ -->
+</head>
+<body> 
+	<h3>2. Kotitalousvähennys</h3>
+
+	<form>
+		<label>Maksettu:</label> 
+		<input type="text" id="maksettu" size="5"> 
+		<br> <br>
+		
+		<label>joista työn osuus:</label> 
+		<input type="text" id="tyonOsuus" size="5"> 
+		
+		<br> <br>
+		
+		<input type="button" value="Laske" onclick="laske()">
+	</form>
+
+	<!-- Tänne kirjoitetaan vastaus JavaScriptillä -->
+	<div id="vastaus"></div>
+	
+	 <script type="text/javascript">
+	// Funktio
+	function laske() {
+		// Lomakekentän arvo
+		var maksettu = document.getElementById("maksettu").value;
+		var tyonOsuus = document.getElementById("tyonOsuus").value;
+		var teksti = "";
+		
+		
+
+
+		kotiTalVahennys(tyonOsuus);
+		maksettavaa(maksettu, kotitalousvahennys);
+		// Vastauksen kirjoittaminen html-sivulle
+		document.getElementById("vastaus").innerHTML = "<p>" + teksti + "<br></p>";
+	}
+	
+	function kotiTalVahennys(tyonOsuus){
+		var kotitalousvahennys = (tyonOsuus * 0.50) - 100;
+		var teksti = "";
+		
+		
+			if (kotitalousvahennys < 2400) {
+				
+				teksti = teksti + "Kotitalousvähennys on " + kotitalousvahennys + " euroa.<br>";
+			}
+			else (kotitalousvahennys >= 2400) {
+				teksti = teksti + "Kotitalousvähennys on 2400 euroa.<br>";
+			}
+			
+		return teksti;
+		}
+	
+	
+	function maksettavaa(maksettu, kotitalousvahennys){
+		var teksti = "";
+		var maksettavaa = maksettu - kotitalousvahennys;
+		
+		teksti = teksti + "Itselle jää maksettavaa " + maksettavaa + " euroa.<br>"
+		
+		return teksti;
+	}
+	</script>
+</body>
+</html>
